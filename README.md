@@ -1,26 +1,40 @@
 Test task
 Description
 Create an authentication service. There should be 4 REST API routes with the following functionality:
+
   returning Access and Refresh tokens for the client whose identifier (UUID) is specified in the request parameter; +
+
   refreshing the Access token;                                                                                      +
+  
   removing of the specified Refresh token from DB (only 1 token can be specified);                                  +
+  
   removing all Refresh tokens that relate to a certain client from DB.                                              +
+  
 There are several requirements to the tokens:
+
   Refresh token must be protected from changes on the client-side                                                   ?
+  
   Refresh token cannot be reused more than once                                                                     +
+  
   Refresh operation for an Access token can be performed only with the Refresh token that was issued along with it. +
+  
 Technologies
+
   Programming language: Go                                                                                          +
+  
   DB:
     DBMS: MongoDB                                                                                                   +
     Topology: Replica set                                                                                           ?
+    
   Access token
     Type: JWT                                                                                                       +
     Encryption algorithm: SHA 512                                                                                   +
+    
   Refresh token
     Type: any                                                                                                       +
     Transfer format: base 64                                                                                        +
     Storing in DB: bcrypt hash                                                                                      +
+    
   Dependency management should be done with Go Modules                                                              ?
 
 
